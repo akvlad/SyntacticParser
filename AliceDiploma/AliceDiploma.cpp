@@ -378,7 +378,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	vector<Word> res=divide(sentence,&lo);
 	set_unions(res,un_set,un_pattterns);
 	vector<Segment> segments=get_segments(res);
-	int seg_type_patterns[9][5]={{}}
+	int seg_type_patterns[9][5]={{}};
 	for(vector<Segment>::iterator it=segments.begin();it!=segments.end();++it){
 		for(vector<Word>::iterator it2=it->m_left_border;it2!=it->m_right_border;++it2)
 		{
