@@ -361,6 +361,60 @@ bool pred_form_4(const Word& w)
 	if (w.type!=Word::Word_type::word || w.m_all_lemms.size()>=2) return false;
 	return (w.m_MI & 0x00068000) == 0x00068000;
 }
+
+bool pred_form_5(const Word& w)
+{
+	if (w.type!=Word::Word_type::word || w.m_all_lemms.size()>=2) return false;
+	return (w.m_MI & 0x00010000) == 0x00010000;
+}
+
+bool pred_form_6(const Word& w)
+{
+	if (w.type!=Word::Word_type::word || w.m_all_lemms.size()>=2) return false;
+	return (w.m_MI & 0x00010000) == 0x00010000;
+}
+
+bool pred_form_def(const Word& w)
+{
+	return false;
+}
+
+bool pred_form_9(const Word& w)
+{
+	return true;
+}
+
+void setSegment(Segment& s)
+{
+	bool (*pred[9])(const Word&)={pred_form_1,pred_form_2,pred_form_3,pred_form_4,pred_form_5,pred_form_6,
+		pred_form_def,pred_form_def,pred_form_9};
+	for(int i=0;i<9;++i)
+	{
+		vector<Word>::iterator it=find_if(s.m_left_border,s.m_right_border,pred[i]);
+		if(it!=s.m_right_border)
+		{
+			s.m_type=i+1;
+			s.first=&(*it);
+			return;
+		}
+	}
+}
+
+
+
+bool has_dash(const Word& w)
+{
+	return w.type==Word::dash;
+}
+
+bool is_dash(Segment& s)
+{
+	vector<Word>::iterator it=find_if(s.m_left_border,s.m_right_border,has_dash);
+	if(it!=s.m_left_border && it!=s.m_right_border && it!=s.m_right_border-1)
+		return true;
+	return false;
+}
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	SetConsoleCP(1251);
@@ -378,8 +432,13 @@ int _tmain(int argc, _TCHAR* argv[])
 	vector<Word> res=divide(sentence,&lo);
 	set_unions(res,un_set,un_pattterns);
 	vector<Segment> segments=get_segments(res);
-	int seg_type_patterns[9][5]={{}};
+	for(vector<Segment>::iterator it=segments.begin();it!=segments.end();++it)
+	{
+		setSegment(&*it);
+		//if()
+	}
 	for(vector<Segment>::iterator it=segments.begin();it!=segments.end();++it){
+		cout<<it->m_type;
 		for(vector<Word>::iterator it2=it->m_left_border;it2!=it->m_right_border;++it2)
 		{
 			cout<<it2->get_string()<<" "<<it2->m_MI<<" ";
