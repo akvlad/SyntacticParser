@@ -79,14 +79,21 @@
     <None Include="words.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="LemmOrganizer.h" />
+    <ClInclude Include="predicates_func.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Segment.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="union_pattern.h" />
+    <ClInclude Include="Word.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AliceDiploma.cpp" />
+    <ClCompile Include="Segment.cpp" />
     <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="words.h" />
+    <ClCompile Include="union_pattern.cpp" />
+    <ClCompile Include="Word.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="AliceDiploma.rc" />
