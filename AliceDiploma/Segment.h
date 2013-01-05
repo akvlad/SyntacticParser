@@ -35,4 +35,4 @@ vector<Segment> get_segments(vector<Word>& Words);
 
 void setSegment(Segment& s);
 
-bool is_dash(Segment& s);
+bool has_dash(Segment& s);

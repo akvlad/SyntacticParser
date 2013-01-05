@@ -72,4 +72,42 @@ bool getPieces( string text,
 
 void print_word(const Word& w);
 
-bool has_dash(const Word& w);
+bool is_dash(const Word& w);
+
+class comparer
+{
+public:
+	virtual bool operator () (const Word&) const = 0;
+};
+
+template <class Fn>
+class type_comparer:public comparer
+{
+public:
+	Fn m_fn;
+	Word::Word_type m_r_op;
+	type_comparer(Fn fn,Word::Word_type r_op);
+	bool operator () (const Word& ) const;
+};
+
+template <class Fn>
+class MI_comparer:public comparer
+{
+public:
+	Fn m_fn; 
+	unsigned long int m_r_op,m_mask;
+	MI_comparer(Fn fnm,unsigned long int r_op,unsigned long int mask);
+	bool operator () (const Word& ) const;
+};
+
+template <class Fn>
+class complex_comparer:public comparer
+{
+public:
+	const comparer& m_l_op;
+	const comparer& m_r_op;
+	Fn m_fn; 
+	complex_comparer(Fn fn,const comparer& l_op, const comparer& r_op):
+		m_fn(fn),m_l_op(l_op),m_r_op(r_op){}
+	bool operator () (const Word& ) const;
+};

@@ -54,10 +54,11 @@ void setSegment(Segment& s)
 	}
 }
 
-bool is_dash(Segment& s)
+bool has_dash(Segment& s)
 {
-	vector<Word>::iterator it=find_if(s.m_left_border,s.m_right_border,has_dash);
+	vector<Word>::iterator it=find_if(s.m_left_border,s.m_right_border,type_comparer<equal_to <int> >(equal_to <int>(), Word::dash));
 	if(it!=s.m_left_border && it!=s.m_right_border && it!=s.m_right_border-1)
 		return true;
+	
 	return false;
 }
