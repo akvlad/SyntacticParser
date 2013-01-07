@@ -6,6 +6,8 @@
 
 using namespace std;
 
+typedef std::vector<std::pair<string,string> > MainMembers;
+
 struct Segment
 {
 	int m_type;
@@ -36,3 +38,5 @@ vector<Segment> get_segments(vector<Word>& Words);
 void setSegment(Segment& s);
 
 bool has_dash(Segment& s);
+
+MainMembers get_main_dicks_of_sentence(vector<Segment> &segments);

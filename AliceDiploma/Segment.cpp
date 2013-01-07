@@ -56,9 +56,28 @@ void setSegment(Segment& s)
 
 bool has_dash(Segment& s)
 {
-	vector<Word>::iterator it=find_if(s.m_left_border,s.m_right_border,type_comparer<equal_to <int> >(equal_to <int>(), Word::dash));
-	if(it!=s.m_left_border && it!=s.m_right_border && it!=s.m_right_border-1)
-		return true;
+	// TODO: у меня не линковался код "type_comparer<equal_to <int> >(equal_to <int>(), Word::dash)" по этому я временно выкинул это.
+	//vector<Word>::iterator it=find_if(s.m_left_border,s.m_right_border,type_comparer<equal_to <int> >(equal_to <int>(), Word::dash));
+	//if(it!=s.m_left_border && it!=s.m_right_border && it!=s.m_right_border-1)
+	//	return true;
 	
 	return false;
+}
+
+MainMembers get_main_dicks_of_sentence(vector<Segment> &segments)
+{
+	MainMembers mm;
+	// я сохраняю дурацкие именования как и в алгоритме. чтобы не мучаться потом.
+	bool Flag_Cop = false; // булева переменная, указывает на наличие в явном виде Cop(f).
+	string Subj;
+	string Pred;
+
+	vector<Segment>::iterator it = segments.begin();
+	// Поиск по МИ слева направо V(f).
+	for (; it != segments.end(); ++it)
+	{
+
+	}
+
+	return mm;
 }

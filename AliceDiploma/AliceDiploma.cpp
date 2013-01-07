@@ -59,6 +59,12 @@ int _tmain(int argc, _TCHAR* argv[])
 	// дебаг показывает, что в структуре много чего не иницилизировано.
 	// да там вообще все наполовину мертво! *wall*
 
+	// начинаю реализовывать алгоритм на свой страх и риск.
+	// боюсь меня ебанет током или еще чем похуже.
+	// ведь в сегментах одни мертвые!
+	// пока что буду возвращать вектор пар <Pred, Subj>.
+	MainMembers mmm2012 = get_main_dicks_of_sentence(segments);
+
 	for(vector<Segment>::iterator it=segments.begin();it!=segments.end();++it){
 		cout<<it->m_type;
 		for(vector<Word>::iterator it2=it->m_left_border;it2!=it->m_right_border;++it2)
