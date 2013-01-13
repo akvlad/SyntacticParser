@@ -1,0 +1,11 @@
+1	мальчик	мальчик	N	N	NO|MA|SI|AN	8	С	_	_
+2	,	,	S	S	_	1	З	_	_
+3	очень	очень	AV	AV	_	4	МП	_	_
+4	хорошо	хороший	AV	AV	_	5	МП	_	_
+5	сдавший	сдать	P	P	NO|MA|SI|PS|ACT|ACC	1	П	_	_
+6	экзамен	экзамен	N	N	AC|MA|SI|NAN	5	O	_	_
+7	,	,	S	S	_	6	З	_	_
+8	пошел	пойти	V	V	PS|FF|FS|FT|ACT|ACC|PIM|VIT|VRF	0	ROOT	_	_
+9	гулять	гулять	V	V	ACT|INC|PIM|VIT|VRF	8	П	_	_
+10	.	.	S	S	_	9	З	_	_
+

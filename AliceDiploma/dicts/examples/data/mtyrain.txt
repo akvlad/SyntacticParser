@@ -1,0 +1,6 @@
+﻿1	мама	мама	N	N	NO|FE|SI|AN	4	субъект
+2	и	и	U	U	_	4	субъект
+3	папа	папа	N	N	NO|MA|SI|AN	2	субъект
+4	идут	идти	V	V	PL|CO|FT|ACT|INC|VIT	0	ROOT
+5	в	в	P	P	_	4	локатив
+6	магазин	магазин	N	N	AC|MA|SI|NAN	5	локатив

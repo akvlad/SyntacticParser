@@ -1,0 +1,6 @@
+﻿1	мама	мама	N	N	NO|FE|SI|AN	_	_
+2	и	и	U	U	_	_	_
+3	папа	папа	N	N	NO|MA|SI|AN	_	_
+4	идут	идти	V	V	PL|CO|FT|ACT|INC|VIT	_	_
+5	в	в	P	P	_	_	_
+6	магазин	магазин	N	N	AC|MA|SI|NAN	_	_

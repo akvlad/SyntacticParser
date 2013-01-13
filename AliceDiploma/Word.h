@@ -17,7 +17,8 @@ struct Word
 		dash,
 		sign,
 		border,
-		sentence_union
+		sentence_union,
+		entrance_word
 	};
 
 	string m_word;
@@ -74,6 +75,7 @@ void print_word(const Word& w);
 
 bool is_dash(const Word& w);
 
+
 class comparer
 {
 public:
@@ -84,30 +86,70 @@ template <class Fn>
 class type_comparer:public comparer
 {
 public:
+	typedef Fn func_type;
 	Fn m_fn;
 	Word::Word_type m_r_op;
-	type_comparer(Fn fn,Word::Word_type r_op);
-	bool operator () (const Word& ) const;
+	type_comparer(Fn fn,Word::Word_type r_op): m_fn(fn),m_r_op(r_op)
+	{}
+	virtual bool operator () (const Word& w) const
+	{
+		return m_fn(w.type,m_r_op);
+	}
 };
 
 template <class Fn>
 class MI_comparer:public comparer
 {
 public:
+	typedef Fn func_type;
 	Fn m_fn; 
 	unsigned long int m_r_op,m_mask;
-	MI_comparer(Fn fnm,unsigned long int r_op,unsigned long int mask);
-	bool operator () (const Word& ) const;
+	bool m_with_omonyms;
+	MI_comparer(Fn fn,unsigned long int r_op,unsigned long int mask,
+		bool with_omonyms):m_fn(fn),m_r_op(r_op),m_mask(mask),m_with_omonyms(with_omonyms)
+	{}
+	bool operator () (const Word& w) const
+	{	if(!m_with_omonyms && w.m_all_lemms.size()>1)
+			return false;
+		return m_fn(w.m_MI & m_mask,m_r_op);
+	}
 };
 
 template <class Fn>
 class complex_comparer:public comparer
 {
 public:
+	typedef Fn func_type;
 	const comparer& m_l_op;
 	const comparer& m_r_op;
 	Fn m_fn; 
 	complex_comparer(Fn fn,const comparer& l_op, const comparer& r_op):
 		m_fn(fn),m_l_op(l_op),m_r_op(r_op){}
-	bool operator () (const Word& ) const;
+	bool operator () (const Word& w) const
+	{return m_fn(m_l_op(w),m_r_op(w));}
 };
+
+class fake_comparer:public comparer
+{
+public:
+	bool m_fake;
+	fake_comparer(bool fake):
+	m_fake(fake){}
+	bool operator () (const Word& ) const
+	{return m_fake;}
+};
+
+struct conll
+{
+	string m_word;
+	string lemm;
+	Word::Word_type type;
+	string ps;
+	string add_MI;
+	unsigned long int m_MI;
+	conll(string _word,string _lemm,Word::Word_type _type,int MI):
+	m_word(_word),lemm(_lemm),type(_type),m_MI(MI){}
+};
+
+string translate_add_MI(const conll& w);
+string translate_PS(const conll& w);

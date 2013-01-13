@@ -1,0 +1,24 @@
+﻿1	мама	мама	N	N	NO|FE|SI|AN	4	С
+2	и	и	U	U	_	4	С
+3	папа	папа	N	N	NO|MA|SI|AN	2	С
+4	идут	идти	V	V	PL|CO|FT|ACT|INC|VIT	0	ROOT
+5	в	в	PRP	PRP	_	4	КЛ
+6	магазин	магазин	N	N	AC|MA|SI|NAN	5	КЛ
+
+1	мальчик	мальчик	N	N	NO|MA|SI|AN	8	С
+2	,	,	S	S	_	1	З
+3	очень	очень	AV	AV	_	4	МП
+4	хорошо	хороший	AV	AV	_	5	МП
+5	сдавший	сдать	P	P	NO|MA|SI|PS|ACT|ACC	1	П
+6	экзамен	экзамен	N	N	AC|MA|SI|NAN	5	O
+7	,	,	S	S	_	6	З
+8	пошел	пойти	V	V	PS|FF|FS|FT|ACT|ACC|PIM|VIT|VRF	0	ROOT
+9	гулять	гулять	V	V	ACT|INC|PIM|VIT|VRF	8	П
+10	.	.	S	S	_	9	З
+
+1	я	я	PRN	PRN	NO|SI|PN	3	З
+2	очень	очень	AV	AV	_	3	МП
+3	люблю	любить	V	V	SI|PS|FU|CO|FF|ACT|INC	0	ROOT
+4	свежее	свежий	A	A	AC|MA|FE|NE|SI|NAN	5	П
+5	мороженое	мороженое	N	N	AC|MA|FE|NE|SI	3	O
+6	.	.	S	S	_	5	З

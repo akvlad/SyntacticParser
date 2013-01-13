@@ -1,0 +1,17 @@
+-----------------------------------------------------------------------------
+                          MaltParser 1.7.2                             
+-----------------------------------------------------------------------------
+         MALT (Models and Algorithms for Language Technology) Group          
+             Vaxjo University and Uppsala University                         
+                             Sweden                                          
+-----------------------------------------------------------------------------
+
+Started: Sun Jan 13 05:18:56 EET 2013
+  Transition system    : Arc-Eager
+  Parser configuration : Nivre with with allow_root=true and allow_reduce=false
+  Feature model        : NivreEager.xml
+  Classifier           : liblinear
+  Data Format          : /test/conllx.xml
+.          	      0	      0s	      3MB
+Parsing time: 00:00:00 (164 ms)
+Finished: Sun Jan 13 05:18:56 EET 2013

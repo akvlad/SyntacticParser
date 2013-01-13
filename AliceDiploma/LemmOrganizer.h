@@ -6,9 +6,15 @@
 
 using namespace std;
 
+struct SLI
+{
+	string LEMM;
+	unsigned long int MI;
+};
+
 struct LemmOrganizer
 {
-	map<string, unsigned long int> LemmDict;
+	map<string, SLI> LemmDict;
 
 	LemmOrganizer(string fname)
 	{
@@ -17,14 +23,20 @@ struct LemmOrganizer
 		{
 			string wrd;
 			f>>wrd;
-			unsigned long int MI;
-			f>>MI;
+			SLI MI;
+			f>>MI.MI;
+			f>>MI.LEMM;
 			LemmDict[wrd]=MI;
 		}		
 	}
 
 	unsigned long int getMI(string wrd)
 	{
-		return LemmDict[wrd];
+		return LemmDict[wrd].MI;
 	}	
+	string getLEMM(string wrd)
+	{
+		return LemmDict[wrd].LEMM;
+	}	
+
 };
